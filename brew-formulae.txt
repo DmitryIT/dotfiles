@@ -1,0 +1,14 @@
+eza
+fish
+fzf
+lua
+luajit
+luarocks
+luv
+msgpack
+ncurses
+neovim
+starship
+tree-sitter
+xz
+zoxide

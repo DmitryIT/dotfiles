@@ -1,0 +1,3 @@
+alacritty
+font-droid-sans-mono-nerd-font
+font-meslo-lg-nerd-font
