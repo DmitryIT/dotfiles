@@ -38,7 +38,24 @@ require("lazy").setup({
     -- Color schemes
     { "rebelot/kanagawa.nvim" },
     { "morhetz/gruvbox" },
+    { 
+        "catppuccin/nvim", 
+        name = "catppuccin", 
+        priority = 1000,
+        config = function()
+            require("catppuccin").setup({
+                transparent_background = true, -- Enable this for transparency
+            })
+        end
+    },
     
+    -- Mason
+    {
+    "williamboman/mason.nvim",
+    config = function()
+        require("mason").setup()
+    end,
+    },
     -- Git integration
     { "tpope/vim-fugitive" },
     
@@ -75,15 +92,35 @@ require("lazy").setup({
         config = function()
             require('lualine').setup({
                 options = {
-                    theme = 'gruvbox'
+                    theme = 'catppuccin'
                 }
             })
         end
+    },
+    -- nvim-autopairs 
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
+    },
+    -- Neo-tree
+{
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
+} 
 })
 
+
 -- Color scheme setup
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme catppuccin]])
 vim.opt.background = "dark"
 
 -- LSP setup for Go
@@ -98,6 +135,7 @@ require('lspconfig').gopls.setup{
         },
     },
 }
+
 
 -- Keybindings
 local keymap = vim.keymap.set

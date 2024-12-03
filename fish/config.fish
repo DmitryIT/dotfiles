@@ -4,6 +4,7 @@ end
 starship init fish | source
 alias ls="eza --color=always --long --icons=always"
 alias cd="z"
+alias v="nvim"
 
 zoxide init fish | source
 
